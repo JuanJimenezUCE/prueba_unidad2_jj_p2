@@ -1,10 +1,14 @@
 package com.uce.edu.demo.sistema.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.sistema.repository.IPacienteRepository;
 import com.uce.edu.demo.sistema.repository.modelo.Paciente;
+import com.uce.edu.demo.sistema.repository.modelo.to.PacienteSencillo;
 @Service
 public class PacienteServiceImpl implements IPacienteService{
 	@Autowired
@@ -39,5 +43,7 @@ public class PacienteServiceImpl implements IPacienteService{
 		// TODO Auto-generated method stub
 		return this.iPacienteRepository.buscarPorCedula(cedula);
 	}
+
+
 
 }

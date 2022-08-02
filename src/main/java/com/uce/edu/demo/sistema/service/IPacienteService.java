@@ -13,4 +13,6 @@ public interface IPacienteService {
 	public void eliminar(Integer codigo);
 	
 	public Paciente buscarPorCedula(String cedula);
+	
+	
 }

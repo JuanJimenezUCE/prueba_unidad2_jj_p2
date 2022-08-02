@@ -14,11 +14,14 @@ import com.uce.edu.demo.sistema.repository.modelo.CitaMedica;
 import com.uce.edu.demo.sistema.repository.modelo.Doctor;
 import com.uce.edu.demo.sistema.repository.modelo.Paciente;
 import com.uce.edu.demo.sistema.repository.modelo.to.CitaMedicaSencilla;
+import com.uce.edu.demo.sistema.repository.modelo.to.PacienteSencillo;
 @Service
 public class GestorCitaMedicaServiceImpl implements IGestorCitaMedicaService{
 
 	@Autowired
 	private IPacienteRepository iPacienteRepository;
+
+
 	
 	@Autowired
 	private IDoctorRepository iDoctorRepository;
@@ -63,6 +66,11 @@ public class GestorCitaMedicaServiceImpl implements IGestorCitaMedicaService{
 	public List<CitaMedicaSencilla> reporteFechaCosto(LocalDateTime fechaCita, BigDecimal valorCita) {
 		// TODO Auto-generated method stub
 		return this.iCitaMedicaRepository.reporteFechaCosto(fechaCita, valorCita);
+	}
+	@Override
+	public List<PacienteSencillo> reportePacientes(LocalDateTime fechaNacimiento, String genero) {
+		// TODO Auto-generated method stub
+		return this.iPacienteRepository.reportePacientes(fechaNacimiento, genero);
 	}
 
 	

@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.uce.edu.demo.sistema.repository.modelo.Doctor;
 import com.uce.edu.demo.sistema.repository.modelo.Paciente;
-import com.uce.edu.demo.sistema.repository.modelo.to.CitaMedicaSencilla;
+import com.uce.edu.demo.sistema.repository.modelo.to.PacienteSencillo;
 import com.uce.edu.demo.sistema.service.IDoctorService;
 import com.uce.edu.demo.sistema.service.IGestorCitaMedicaService;
 import com.uce.edu.demo.sistema.service.IPacienteService;
@@ -89,8 +89,8 @@ public class PruebaUnidad2JjP2Application implements CommandLineRunner{
 		LOG.info("Doctor"+d2);
 		
 		//this.iGestorCitaMedicaService.agendamientoCitaMedica("1", LocalDateTime.now(), new BigDecimal(10), "Hospital militar", "172585696", "1723026900");
-		
-		//this.iGestorCitaMedicaService.actualizarPorNumero("1", "Infeccion", "Ibuprofeno 400ml", LocalDateTime.of(2022, 8, 12,3, 50));
+		/*
+		this.iGestorCitaMedicaService.actualizarPorNumero("1", "Infeccion", "Ibuprofeno 400ml", LocalDateTime.of(2022, 8, 12,3, 50));
 		
 		List<CitaMedicaSencilla> reporte =this.iGestorCitaMedicaService.reporteFechaCosto(LocalDateTime.of(2021, 1, 1, 1, 0), new BigDecimal(5));
 		for(CitaMedicaSencilla citaItem: reporte) {
@@ -99,7 +99,12 @@ public class PruebaUnidad2JjP2Application implements CommandLineRunner{
 			
 			
 		}
+		*/
 		
+		List<PacienteSencillo> paciente = this.iGestorCitaMedicaService.reportePacientes(LocalDateTime.of(2000, 1, 1, 12, 30), "M");
+		for (PacienteSencillo item : paciente) {
+			LOG.info("Paciente Sencillo: " + item);
+		}
 	}
 
 }
