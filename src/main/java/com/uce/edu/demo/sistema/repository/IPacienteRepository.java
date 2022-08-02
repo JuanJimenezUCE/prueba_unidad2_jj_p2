@@ -8,9 +8,9 @@ public interface IPacienteRepository {
 
 	public void actualizar(Paciente paciente);
 
-	public Paciente buscarPorId(Integer id);
+	public Paciente buscar(Integer codigo);
 
-	public void eliminar(Integer id);
+	public void eliminar(Integer codigo);
 	
 	public Paciente buscarPorCedula(String cedula);
 }

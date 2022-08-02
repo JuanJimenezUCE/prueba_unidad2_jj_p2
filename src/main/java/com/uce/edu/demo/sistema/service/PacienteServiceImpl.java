@@ -23,15 +23,15 @@ public class PacienteServiceImpl implements IPacienteService{
 	}
 
 	@Override
-	public Paciente buscarPorId(Integer id) {
+	public Paciente buscar(Integer codigo) {
 		// TODO Auto-generated method stub
-		return this.iPacienteRepository.buscarPorId(id);
+		return this.iPacienteRepository.buscar(codigo);
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void eliminar(Integer codigo) {
 		// TODO Auto-generated method stub
-		this.iPacienteRepository.eliminar(id);
+		this.iPacienteRepository.eliminar(codigo);
 	}
 
 	@Override

@@ -32,7 +32,7 @@ public class Doctor {
 		@Column(name ="doct_apellido")
 		private String apellido;
 		
-		@Column(name ="doct_fecha")
+		@Column(name ="doct_fecha_nacimiento")
 		private LocalDateTime fechaNacimiento;
 		
 		@Column(name ="doct_numero_consultorio")

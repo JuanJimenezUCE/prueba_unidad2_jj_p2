@@ -42,25 +42,25 @@ public class PruebaUnidad2JjP2Application implements CommandLineRunner{
 		p.setApellido("Jimenez");
 		p.setCedula("1723026900");
 		p.setCodigoIESS("1011");
-		p.setEstatura("172");
+		p.setEstatura( new Double("1.72"));
 		p.setFechaNacimiento(LocalDateTime.of(2005, 12, 5, 1, 30));
 		p.setGenero("M");
 		p.setNombre("Juan");
-		p.setPeso("65");
+		p.setPeso(new Double("72"));
 	
 		Paciente p2= new Paciente();
 		p2.setApellido("Yaguari");
 		p2.setCedula("1723026901");
 		p2.setCodigoIESS("1012");
-		p2.setEstatura("152");
+		p2.setEstatura(new Double("1.52"));
 		p2.setFechaNacimiento(LocalDateTime.of(2008, 5, 7, 1, 30));
 		p2.setGenero("F");
 		p2.setNombre("Andrea");
-		p2.setPeso("50");
+		p2.setPeso(new Double("50"));
 	
 
-		this.iPacienteService.insertar(p);
-		this.iPacienteService.insertar(p2);
+		//this.iPacienteService.insertar(p);
+		//this.iPacienteService.insertar(p2);
 		
 		LOG.info("Paciente"+p);
 		LOG.info("Paciente2"+p2);
@@ -82,15 +82,15 @@ public class PruebaUnidad2JjP2Application implements CommandLineRunner{
 		d2.setTitulo("Medicina general");
 		d2.setSalario(new BigDecimal(1500));
 		
-		this.iDoctorService.insertar(d);
+		//this.iDoctorService.insertar(d);
 		
-		this.iDoctorService.insertar(d2);
+		//this.iDoctorService.insertar(d2);
 		LOG.info("Doctor"+d);
 		LOG.info("Doctor"+d2);
 		
-		this.iGestorCitaMedicaService.agendamientoCitaMedica("1", LocalDateTime.now(), new BigDecimal(10), "Hospital militar", "172585696", "1723026900");
+		//this.iGestorCitaMedicaService.agendamientoCitaMedica("1", LocalDateTime.now(), new BigDecimal(10), "Hospital militar", "172585696", "1723026900");
 		
-		this.iGestorCitaMedicaService.actualizarPorNumero("1", "Infeccion", "Ibuprofeno 400ml", LocalDateTime.of(2022, 8, 12,3, 50));
+		//this.iGestorCitaMedicaService.actualizarPorNumero("1", "Infeccion", "Ibuprofeno 400ml", LocalDateTime.of(2022, 8, 12,3, 50));
 		
 		List<CitaMedicaSencilla> reporte =this.iGestorCitaMedicaService.reporteFechaCosto(LocalDateTime.of(2021, 1, 1, 1, 0), new BigDecimal(5));
 		for(CitaMedicaSencilla citaItem: reporte) {

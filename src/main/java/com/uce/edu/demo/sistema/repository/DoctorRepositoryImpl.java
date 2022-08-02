@@ -3,6 +3,7 @@ package com.uce.edu.demo.sistema.repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -29,24 +30,24 @@ public class DoctorRepositoryImpl implements IDoctorRepository{
 	}
 
 	@Override
-	public Doctor buscarPorId(Integer id) {
+	public Doctor buscar(Integer codigo) {
 		// TODO Auto-generated method stub
-		return this.entityManager.find(Doctor.class, id);
+		return this.entityManager.find(Doctor.class, codigo);
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void eliminar(Integer codigo) {
 		// TODO Auto-generated method stub
-		Doctor d=this.buscarPorId(id);
+		Doctor d=this.buscar(codigo);
 		this.entityManager.refresh(d);
 	}
 
 	@Override
 	public Doctor buscarPorCedula(String cedula) {
 		// TODO Auto-generated method stub
-		Query myQuery = this.entityManager.createQuery("SELECT d FROM Doctor d WHERE d.cedula = :cedula");
+		TypedQuery<Doctor> myQuery = this.entityManager.createQuery("SELECT d FROM Doctor d WHERE d.cedula = :cedula",Doctor.class);
 		myQuery.setParameter("cedula", cedula);
-		return (Doctor) myQuery.getSingleResult();
+		return  myQuery.getSingleResult();
 	}
 
 }

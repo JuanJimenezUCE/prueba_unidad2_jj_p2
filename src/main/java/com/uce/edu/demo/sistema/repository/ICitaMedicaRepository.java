@@ -11,7 +11,10 @@ public interface ICitaMedicaRepository {
 
 	public void agendamiento(CitaMedica citaMedica);
 	
-	public int actualizarPorNumero(String  numeroCita,String diagnostico,String receta,LocalDateTime fechaControl);
+	public void actualizarPorNumero(CitaMedica citaMedica);
+	
+	public CitaMedica buscarPorNumero(String numeroCita);
+	
 	
 	public List<CitaMedicaSencilla> reporteFechaCosto(LocalDateTime fechaCita, BigDecimal valorCita);
 	

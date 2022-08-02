@@ -10,7 +10,7 @@ public interface IGestorCitaMedicaService {
 
 	public void agendamientoCitaMedica(String numeroCita, LocalDateTime fechaCita, BigDecimal CostoCita, String lugarCita, String cedulaDoctor, String cedulaPaciente);
 	
-	public int actualizarPorNumero(String  numeroCita,String diagnostico,String receta,LocalDateTime fechaControl);
+	public void actualizarPorNumero(String  numeroCita,String diagnostico,String receta,LocalDateTime fechaControl);
 	
 	public List<CitaMedicaSencilla> reporteFechaCosto(LocalDateTime fechaCita, BigDecimal valorCita);
 }

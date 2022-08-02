@@ -44,6 +44,7 @@ public class CitaMedica {
 	@ManyToOne
 	@JoinColumn(name = "cime_doct_id")
 	private Doctor doctor;
+	
 
 	//SET Y GET
 	public Integer getId() {

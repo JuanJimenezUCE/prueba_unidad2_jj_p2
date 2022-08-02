@@ -24,7 +24,10 @@ public class GestorCitaMedicaServiceImpl implements IGestorCitaMedicaService{
 	private IDoctorRepository iDoctorRepository;
 	
 	@Autowired
+	private ICitaMedicaService iCitaMedicaService;
+	@Autowired
 	private ICitaMedicaRepository iCitaMedicaRepository;
+	
 	@Override
 	public void agendamientoCitaMedica(String numeroCita, LocalDateTime fechaCita, BigDecimal CostoCita,
 			String lugarCita, String cedulaDoctor, String cedulaPaciente) {
@@ -39,18 +42,22 @@ public class GestorCitaMedicaServiceImpl implements IGestorCitaMedicaService{
 		cita.setFechaCita(fechaCita);
 		cita.setValorCita(CostoCita);
 		cita.setLugarCita(lugarCita);
+
 		cita.setPaciente(p);
 		cita.setDoctor(d);
 		
-		this.iCitaMedicaRepository.agendamiento(cita);
+		this.iCitaMedicaService.agendamiento(cita);
 		
 	}
 	@Override
-	public int actualizarPorNumero(String numeroCita, String diagnostico, String receta, LocalDateTime fechaControl) {
+	public void actualizarPorNumero(String numeroCita, String diagnostico, String receta, LocalDateTime fechaControl) {
 		// TODO Auto-generated method stub
+		CitaMedica cita =this.iCitaMedicaRepository.buscarPorNumero(numeroCita);
+		cita.setDiagnostico(diagnostico);
+		cita.setReceta(receta);
+		cita.setFechaControl(fechaControl);
 		
-		
-		return this.iCitaMedicaRepository.actualizarPorNumero(numeroCita, diagnostico, receta, fechaControl);
+		 this.iCitaMedicaRepository.actualizarPorNumero(cita);
 	}
 	@Override
 	public List<CitaMedicaSencilla> reporteFechaCosto(LocalDateTime fechaCita, BigDecimal valorCita) {

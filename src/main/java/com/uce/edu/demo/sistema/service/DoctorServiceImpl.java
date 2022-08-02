@@ -24,15 +24,15 @@ public class DoctorServiceImpl implements IDoctorService{
 	}
 
 	@Override
-	public Doctor buscarPorId(Integer id) {
+	public Doctor buscar(Integer codigo) {
 		// TODO Auto-generated method stub
-		return this.iDoctorRepository.buscarPorId(id);
+		return this.iDoctorRepository.buscar(codigo);
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void eliminar(Integer codigo) {
 		// TODO Auto-generated method stub
-		this.iDoctorRepository.eliminar(id);
+		this.iDoctorRepository.eliminar(codigo);
 	}
 
 	@Override

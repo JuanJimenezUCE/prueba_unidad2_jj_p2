@@ -29,9 +29,9 @@ public class CitaMedicaRepository implements ICitaMedicaRepository {
 	}
 
 	@Override
-	public int actualizarPorNumero(String numeroCita, String diagnostico, String receta, LocalDateTime fechaControl) {
+	public void actualizarPorNumero(CitaMedica citamedica) {
 		// TODO Auto-generated method stub
-
+/*
 		Query myQuery = this.entityManager.createQuery(
 				"UPDATE CitaMedica c SET c.diagnostico= :diagnostico , c.receta=:receta , c.fechaControl=:fechaControl  WHERE c.numeroCita= :numeroCita");
 		myQuery.setParameter("diagnostico", diagnostico);
@@ -40,7 +40,19 @@ public class CitaMedicaRepository implements ICitaMedicaRepository {
 		myQuery.setParameter("numeroCita", numeroCita);
 
 		return myQuery.executeUpdate();
+		*/
+		this.entityManager.merge(citamedica);
 	}
+	
+	@Override
+	public CitaMedica buscarPorNumero(String numeroCita) {
+		// TODO Auto-generated method stub
+		TypedQuery<CitaMedica> myQuery = this.entityManager.createQuery(
+				"SELECT c FROM CitaMedica c WHERE c.numeroCita =:numeroCita",
+				CitaMedica.class);
+		myQuery.setParameter("numeroCita", numeroCita);
+		return myQuery.getSingleResult();	
+		}
 
 	@Override
 	public List<CitaMedicaSencilla> reporteFechaCosto(LocalDateTime fechaCita, BigDecimal valorCita) {
@@ -54,5 +66,7 @@ public class CitaMedicaRepository implements ICitaMedicaRepository {
 		return myQuery.getResultList();
 
 	}
+
+
 
 }

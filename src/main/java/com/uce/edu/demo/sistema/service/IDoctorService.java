@@ -8,9 +8,9 @@ public interface IDoctorService {
 
 	public void actualizar(Doctor doctor);
 
-	public Doctor buscarPorId(Integer id);
+	public Doctor buscar(Integer codigo);
 
-	public void eliminar(Integer id);
+	public void eliminar(Integer codigo);
 	
 	public Doctor buscarPorCedula(String cedula);
 }
